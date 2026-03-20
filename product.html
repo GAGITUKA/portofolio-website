@@ -1,0 +1,19 @@
+<body>
+<div id="product-detail"></div>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = parseInt(params.get("id"));
+
+const product = products.find(p => p.id === id);
+
+document.getElementById("product-detail").innerHTML = `
+  <h1>${product.name}</h1>
+  <img src="${product.image}" width="300">
+  <p>Rp ${product.price}</p>
+  <button onclick="addToCart(${product.id})">Add to Cart</button>
+`;
+</script>
+</body>
